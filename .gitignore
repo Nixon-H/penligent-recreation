@@ -1,0 +1,11 @@
+node_modules/
+dist/
+out/
+
+# The vendored tools are restored by scripts/fetch-dependencies.sh from the
+# original package and verified against resources/depency/MANIFEST.json.
+resources/depency/*
+!resources/depency/MANIFEST.json
+
+# The packaged build.
+release/

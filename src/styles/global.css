@@ -1,0 +1,51 @@
+/*
+ * Global baseline.
+ *
+ * The reference application does NOT declare a global font-family: the
+ * computed style of <body> in the running app is the UA default
+ * (font-family: "Times New Roman"). Reproducing that omission is deliberate —
+ * adding a sans-serif stack here would change the rendered typography of
+ * every label relative to the original.
+ *
+ * The reference also does not set a global `box-sizing`. Its modal content
+ * box measures 764px wide where the stylesheet declares `width:min(720px,92vw)`,
+ * which is only true with the default content-box sizing (720 + 2*22 padding).
+ * A universal border-box rule is therefore NOT applied here either.
+ *
+ * The rules below mirror the reference's own global rules:
+ *   body { margin: 0; padding: 0 }
+ *   #app { width: 100vw; height: 100vh; margin: 0; padding: 0 }
+ *
+ * The root font size (12px) is applied by the font-size store at runtime, the
+ * same way the reference does it.
+ */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/*
+ * The reference declares no scrollbar rules at all: Chromium/Electron's
+ * default overlay scrollbars are used, so a scrollbar never consumes layout
+ * width. A custom `::-webkit-scrollbar { width: 8px }` rule was measurably
+ * shifting centred overlays (the onboarding modal) by ~3.5px, so none is
+ * declared here either.
+ */

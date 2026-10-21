@@ -1,0 +1,81 @@
+{
+  "description": "The tools the reference ships in resources/depency/: the xray scanner, crawlergo and chrome-headless-shell. Restore them with scripts/fetch-dependencies.sh.",
+  "source": "penligent.kali_amd64_2.1.6.deb (resources/depency/)",
+  "files": [
+    {
+      "path": "chrome-headless-shell/linux-120.0.6098.0/chrome-headless-shell-linux64/ABOUT",
+      "size": 248,
+      "sha256": "c645a1dc5c15de893b28459d993a0015b9cbd006bce9438eaa1771714e25afed"
+    },
+    {
+      "path": "chrome-headless-shell/linux-120.0.6098.0/chrome-headless-shell-linux64/chrome-headless-shell",
+      "size": 163635496,
+      "sha256": "2095daaf8f4b3151df6c4917095307e0eee83d2f52c75e7aeb32b6400ce9d358"
+    },
+    {
+      "path": "chrome-headless-shell/linux-120.0.6098.0/chrome-headless-shell-linux64/headless_command_resources.pak",
+      "size": 2874,
+      "sha256": "e06a37053f419eef94d418dbbf9a67f3f1698cdb5c59bdc967f3636d7f3122bc"
+    },
+    {
+      "path": "chrome-headless-shell/linux-120.0.6098.0/chrome-headless-shell-linux64/headless_lib_data.pak",
+      "size": 1423962,
+      "sha256": "f3a9f92f215f24d6f42077a4dfdec3b82fee4870e64e5089520a6e1262bf80bc"
+    },
+    {
+      "path": "chrome-headless-shell/linux-120.0.6098.0/chrome-headless-shell-linux64/headless_lib_strings.pak",
+      "size": 3113636,
+      "sha256": "9c7085bf612469f878efebbffc4a990dd9e43a0181ad0bf8952659dae25f8d75"
+    },
+    {
+      "path": "chrome-headless-shell/linux-120.0.6098.0/chrome-headless-shell-linux64/icudtl.dat",
+      "size": 10717392,
+      "sha256": "f5170aa2b388d23bebf98784dd488a9bcb741470384a6a9a8d7a2638d768defb"
+    },
+    {
+      "path": "chrome-headless-shell/linux-120.0.6098.0/chrome-headless-shell-linux64/libEGL.so",
+      "size": 242792,
+      "sha256": "e3f5ede7bcaa99d69553bc8d9185453f630953df779dc6e163bdce3ce265d111"
+    },
+    {
+      "path": "chrome-headless-shell/linux-120.0.6098.0/chrome-headless-shell-linux64/libGLESv2.so",
+      "size": 6663864,
+      "sha256": "7b87da68c258cc84e5a4fb6dbf2451aaf7c7233d34fc6ee38abe4af7718cfc06"
+    },
+    {
+      "path": "chrome-headless-shell/linux-120.0.6098.0/chrome-headless-shell-linux64/libvk_swiftshader.so",
+      "size": 4100656,
+      "sha256": "6b51515df83dbb092b7e020f459b7f771898061cb55e7f134458394008d6f1b2"
+    },
+    {
+      "path": "chrome-headless-shell/linux-120.0.6098.0/chrome-headless-shell-linux64/libvulkan.so.1",
+      "size": 603648,
+      "sha256": "e3e5f652bbff6857eba29df5c85719fbf00717ba34797bc15140ebdae2a46813"
+    },
+    {
+      "path": "chrome-headless-shell/linux-120.0.6098.0/chrome-headless-shell-linux64/v8_context_snapshot.bin",
+      "size": 642377,
+      "sha256": "f67cea9a2d85273560d9fb7b913d03588e21ed12fdd9fa85ad22b35e7e381228"
+    },
+    {
+      "path": "chrome-headless-shell/linux-120.0.6098.0/chrome-headless-shell-linux64/vk_swiftshader_icd.json",
+      "size": 107,
+      "sha256": "c9eef28b6b984fec220ef0abfecc40b502d46946706e47bfe97707027cb818bd"
+    },
+    {
+      "path": "crawlergo",
+      "size": 21211142,
+      "sha256": "e948fe6157ee60a1674e6230a03a605e19a06fa6b63bd1886c91178fd4fb1768"
+    },
+    {
+      "path": "scanner/config.yaml",
+      "size": 10833,
+      "sha256": "72271ec7efbf14a28d766dae2dda20d9eb3f23e7bd718e7bf461a8d2d36268c2"
+    },
+    {
+      "path": "scanner/scanner_linux_amd64",
+      "size": 47206400,
+      "sha256": "dc29ff9c2fa71261c3e6648f5456170e86c5f3045f353babf9abbfbf3603f6bc"
+    }
+  ]
+}

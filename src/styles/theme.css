@@ -1,0 +1,98 @@
+/*
+ * Penligent 2.1.6 — design tokens.
+ *
+ * Reproduced verbatim from the reference application's compiled stylesheet
+ * (dist/assets/index-D0cgtTyk.css) so that the light/dark palettes, the
+ * semantic colour roles and the graph node colours match the original
+ * exactly. Both blocks are byte-for-byte equivalents of the original rules.
+ */
+
+:root {
+  --transparent: rgba(0, 0, 0, 0);
+  --border: rgba(255, 255, 255, .08);
+  --background: rgba(13, 13, 13, 1);
+  --frontground: rgb(32, 32, 32);
+  --foreground: rgba(238, 238, 238, 1);
+  --muted: rgb(170, 170, 170);
+  --accent: rgb(23, 162, 255);
+  --success: rgb(73, 161, 67);
+  --danger: rgb(255, 82, 82);
+  --warning: rgb(255, 132, 0);
+  --editor-bg: rgb(30, 30, 30);
+  --editor-fg: rgba(212, 212, 212, 1);
+  --editor-line-highlight: rgba(255, 255, 255, .03);
+  --editor-selection: rgba(90, 150, 255, .2);
+  --sidebar-bg: rgba(37, 37, 38, 1);
+  --activitybar-bg: rgba(51, 51, 51, 1);
+  --statusbar-bg: rgba(0, 122, 204, 1);
+  --titlebar-bg: rgba(44, 44, 44, 1);
+  --button-bg: rgba(63, 128, 255, 1);
+  --button-hover: rgba(58, 117, 255, 1);
+  --nav-bg: rgba(63, 128, 255, 0);
+  --nav-active-bg: rgba(63, 128, 255, 1);
+  --nav-active-bg-project: rgba(18, 25, 40, 1);
+  --nav-active-border: rgba(63, 128, 255, 1);
+  --nav-hover: rgba(58, 117, 255, 1);
+  --input-bg: rgba(51, 51, 51, 1);
+  --input-fg: rgba(212, 212, 212, 1);
+  --keyword: rgba(197, 134, 192, 1);
+  --string: rgba(206, 145, 120, 1);
+  --number: rgba(181, 206, 168, 1);
+  --function: rgba(220, 220, 170, 1);
+  --comment: rgba(106, 153, 85, 1);
+  --shadow: 0 4px 12px rgba(0, 0, 0, .45);
+  --node-1: rgb(0, 145, 255);
+  --node-1-bg: rgba(0, 120, 212, .3);
+  --node-2: rgb(0, 145, 255);
+  --node-2-bg: rgba(0, 120, 212, .3);
+  --node-3: rgb(0, 213, 255);
+  --node-3-bg: rgba(0, 184, 219, .3);
+  --node-4: rgb(190, 59, 186);
+  --node-4-bg: rgba(218, 112, 214, .3);
+  --node-5: rgba(0, 255, 0, 1);
+  --node-5-bg: rgba(0, 255, 0, .3);
+  --node-6: rgba(255, 0, 0, 1);
+  --node-6-bg: rgba(255, 0, 0, .3);
+  --node-risk: rgba(238, 174, 38, 1);
+  --node-risk-bg: rgba(238, 174, 38, .3);
+}
+
+/*
+ * The reference application toggles this class on <html> to switch palettes.
+ * Light is the default in a fresh profile (observed: html.className ===
+ * "theme-light" on first launch).
+ */
+.theme-light {
+  --transparent: rgba(0, 0, 0, 0);
+  --border: rgb(223, 223, 223);
+  --background: rgb(255, 255, 255);
+  --frontground: rgb(223, 223, 223);
+  --foreground: rgb(0, 0, 0);
+  --muted: rgb(100, 100, 100);
+  --accent: rgb(48, 172, 255);
+  --success: rgb(0, 185, 0);
+  --danger: rgb(255, 84, 84);
+  --warning: rgb(255, 153, 0);
+  --editor-bg: rgba(255, 255, 255, 1);
+  --editor-fg: rgba(51, 51, 51, 1);
+  --editor-line-highlight: rgba(0, 0, 0, .03);
+  --editor-selection: rgba(0, 122, 204, .12);
+  --sidebar-bg: rgba(243, 243, 243, 1);
+  --activitybar-bg: rgba(246, 246, 246, 1);
+  --statusbar-bg: rgba(231, 231, 231, 1);
+  --titlebar-bg: rgba(240, 240, 240, 1);
+  --button-bg: rgb(37, 163, 247);
+  --button-hover: rgb(98, 187, 255);
+  --nav-bg: rgba(0, 106, 177, 0);
+  --nav-active-bg: rgb(37, 163, 247);
+  --nav-active-bg-project: rgb(221, 231, 255);
+  --nav-active-border: rgb(117, 200, 255);
+  --nav-hover: rgba(10, 119, 201, 1);
+  --input-bg: rgba(255, 255, 255, 1);
+  --input-fg: rgba(51, 51, 51, 1);
+  --keyword: rgba(0, 0, 255, 1);
+  --string: rgba(163, 21, 21, 1);
+  --number: rgba(9, 134, 88, 1);
+  --function: rgba(121, 94, 38, 1);
+  --comment: rgba(0, 128, 0, 1);
+}

