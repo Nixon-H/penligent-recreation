@@ -22,7 +22,10 @@
     "test:scanner": "node test/e2e/scanner.cjs",
     "test:proxy": "node test/e2e/proxy.cjs",
     "test:report": "node test/e2e/report.cjs",
-    "audit": "node scripts/build-reference-usage.mjs"
+    "audit": "node scripts/build-reference-usage.mjs",
+    "test:sweep": "node test/e2e/sweep-controls.cjs",
+    "test:installed": "node test/e2e/verify-installed-views.cjs",
+    "test:installed-console": "node test/e2e/verify-installed-console.cjs"
   },
   "dependencies": {
     "@tiptap/extension-table": "^3.32.0",

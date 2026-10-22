@@ -442,6 +442,26 @@ The script reads the package, restores the tools and verifies them against
 scanner and the crawler report it plainly rather than failing silently.
 
 
+## Checking it
+
+The instruments that found the defects are in the repository, so the checks
+can be repeated:
+
+```bash
+npm test                       # 58 unit tests
+npm run test:sweep             # clicks every control in every view
+npm run test:installed         # the seven views against the reference's shots
+npm run test:installed-console # the console, and the close button
+```
+
+`test:sweep` seeds a disposable profile — a project, a test list, a run, a
+finding, a tool set, credentials, headers, a technique and a chat record —
+reloads so the application selects the project, and then walks the five
+centre views and the two left views, clicking every control in each and
+checking that every view shows the data it was seeded with. It is what
+found the empty project list, the risk statements whose arguments did not
+match their placeholders, and the task tree that never rendered.
+
 ## The parity audit
 
 `dynamic/audit-gaps.cjs` compares this reconstruction against the
