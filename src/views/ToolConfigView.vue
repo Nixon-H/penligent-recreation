@@ -32,6 +32,8 @@ const toolSets = computed(() => projectStore.toolSets || []);
 
 async function load() {
   await projectStore.selectProject(projectStore.currentProject);
+  // The reference loads the tool sets when the panel is mounted.
+  await projectStore.loadToolSets?.();
 }
 
 async function remove(toolSet) {

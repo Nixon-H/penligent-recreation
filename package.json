@@ -10,7 +10,7 @@
     "build": "vite build",
     "start": "npm run build && electron .",
     "electron:dev": "vite --host 127.0.0.1 --port 5173",
-    "test": "node --test test/theme.test.cjs test/ipc.test.cjs test/orchestration.test.mjs test/features.test.mjs test/stores.test.mjs test/parity.test.mjs",
+    "test": "node --test test/theme.test.cjs test/ipc.test.cjs test/orchestration.test.mjs test/features.test.mjs test/stores.test.mjs test/parity.test.mjs test/database.test.mjs",
     "test:e2e": "node test/e2e/compare.cjs",
     "test:db": "electron test/db.test.cjs",
     "test:all": "npm test && npm run test:db && npm run test:functional && npm run test:regressions",

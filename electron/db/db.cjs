@@ -111,8 +111,13 @@ function build(app) {
     getUserToken: () => get("SELECT * FROM users LIMIT 1"),
 
     /* projects */
-    getProjects: () =>
-      all("SELECT * FROM projects WHERE user_name = ? ORDER BY updated_at DESC", this.userName),
+    getProjects: (userName) =>
+      // The reference reads the projects of the signed-in user. This build
+      // has no account, so the filter is dropped and every local project is
+      // returned.
+      userName
+        ? all("SELECT * FROM projects WHERE user_name = ? ORDER BY updated_at DESC", userName)
+        : all("SELECT * FROM projects ORDER BY updated_at DESC"),
     addProjects: (project) =>
       run(
         `INSERT INTO projects
@@ -410,15 +415,13 @@ function build(app) {
         data.status ?? "open",
         data.like_status ?? "neutral",
         data.verify_status ?? "open",
-        data.like_status ?? "neutral",
-        data.verify_status ?? "open",
         data.verify_context ?? null
       ),
     addRiskItemAll: (rows) => {
       const statement = db.prepare(
         `INSERT INTO risk_items
-         (project_id, execution_id, risk_type, severity, title, description, affected_target, evidence, recommendation, cve_id, cvss_score, status)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+         (project_id, execution_id, risk_type, severity, title, description, affected_target, evidence, recommendation, cve_id, cvss_score, status, like_status, verify_status, verify_context)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
       );
       const transaction = db.transaction((items) => {
         for (const item of items) {
@@ -434,7 +437,10 @@ function build(app) {
             item.recommendation ?? "",
             item.cve_id ?? "",
             item.cvss_score ?? null,
-            item.status ?? "open"
+            item.status ?? "open",
+            item.like_status ?? "neutral",
+            item.verify_status ?? "open",
+            item.verify_context ?? null
           );
         }
       });
@@ -461,6 +467,8 @@ function build(app) {
         data.cve_id ?? "",
         data.cvss_score ?? null,
         data.status ?? "open",
+        data.like_status ?? "neutral",
+        data.verify_status ?? "open",
         id
       ),
     updateRiskItemIgnoreStatus: (id, status) =>

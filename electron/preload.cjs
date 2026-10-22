@@ -102,7 +102,7 @@ contextBridge.exposeInMainWorld("dbAPI", {
   getUserInfo: () => invoke("get-user-info"),
   addUser: (user) => invoke("add-user", user),
   updateUserInfo: (info) => invoke("update-user-info", info),
-  getProjects: () => invoke("get-projects"),
+  getProjects: (userName) => invoke("get-projects", userName),
   addProjects: (project) => invoke("add-projects", project),
   updateProjects: (id, data) => invoke("update-projects", id, data),
   deleteProject: (id) => invoke("delete-project", id),

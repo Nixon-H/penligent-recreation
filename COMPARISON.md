@@ -1220,3 +1220,70 @@ pixel difference   1.602 % – 3.520 % across 7 views
 Running the installed build by hand remains the only way to find the next
 one. That is what the operator's screenshots did, and it is worth more than
 any number above.
+
+## 21. Round 16 — the controls, clicked one by one
+
+The operator's report of a control that "does nothing" led to a sweep that
+clicks every control in every view of the **installed** application, with a
+disposable profile and a project seeded so that every view has data to
+render. It reports three things: the errors each click raised, the views that
+did not show their data, and the total.
+
+The first run found six defects, and three of them had been hiding in code
+the audit reports had passed.
+
+### 21.1 The defects
+
+| Defect | Effect | Fix |
+| --- | --- | --- |
+| `getProjects` bound an undefined `user_name` | **the project list was always empty** — a project created and then never seen | the reference reads the projects of the signed-in user; with no account the filter is dropped, and the name is passed through when there is one |
+| `addRiskItem` passed seventeen values for fifteen placeholders | **every finding failed to be stored** | the duplicated `like_status` and `verify_status` values are gone |
+| `updateRiskItem` passed eleven values for thirteen placeholders | **every finding update failed** | the two missing values are added |
+| `addRiskItemAll` left out the three added columns | the batch insert dropped the like, verify and context columns | the columns and their values are added |
+| the chat's footer's second icon called `window.dispatchEvent` in a template | Vue compiles `window` in a template to `_ctx.window`, so the click raised a `TypeError` and **nothing happened** | the icon is not in the reference — the reference's footer carries the mode chip, the web search and the send button — and it is gone; the AI provider settings are reached from the header's account button, as in the reference |
+| the chat's *edit command* button read `tool.command` | the field is `command_command`, so the prompt was empty | the right field is read and written |
+| the chat's *search execution result* button set a value nothing displayed | the button did nothing | the run whose command matches is found and its output is shown |
+| the task list's tree could not be parsed | the store hands the parsed groups over and the view parsed them again, so **the task tree never rendered** | the view accepts both the parsed groups and the JSON |
+| the tool config never loaded the tool sets | the panel was empty until a tool was added | the sets are loaded when the panel is mounted |
+| the task row showed the task's description | the reference shows the task's `item` | the right field is shown |
+| the stores raised notices with raw locale keys | the screen showed `notice.提示` instead of the reference's wording | the locales module exports `translate`, and the dialog and project stores use it |
+
+### 21.2 A test that keeps the parameter counts honest
+
+`better-sqlite3` rejects a call whose arguments do not match the statement's
+placeholders — but it does so where the row is written, long after the
+mistake was made, and only on the path that writes. Two of the four
+statements above had been wrong for days without a single test noticing.
+
+`test/database.test.mjs` now reads every statement in the database layer,
+counts its placeholders and its arguments, and fails if they differ. It also
+checks that the risk item's insert carries its three added columns and that
+the projects query is not binding an undefined user name.
+
+### 21.3 The sweep
+
+```
+dynamic/sweep-controls.cjs
+
+  seeds a disposable profile: a project, a test list, a run, a finding,
+  a tool set, credentials, headers, a technique and a chat record
+  reloads, so the application selects the project it just found
+  walks the five centre views and the two left views
+  clicks every control in each of them, and the header's fifteen
+  checks that every view shows the data it was seeded with
+
+  33 controls clicked in total
+  views that do not show their data: 0
+  console errors: 0
+```
+
+### 21.4 The result
+
+```
+unit tests                       58 / 58   (54 before, plus the database test)
+console errors                     0
+console warnings                   0
+views that do not show their data   0
+close button                 6 processes → 0
+pixel difference        1.588 % – 3.506 % across 7 views
+```

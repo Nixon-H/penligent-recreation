@@ -43,9 +43,16 @@ const testList = computed(() => projectStore.currentTestList);
  *
  *   [ { tasks: [ { id, title, description, target, status }, … ] } ]
  */
+/**
+ * The tree.
+ *
+ * The store's `currentTestList` hands the parsed groups over, and the
+ * database holds the JSON — so both are accepted here.
+ */
 const planOf = computed(() => {
   const raw = testList.value?.test_list;
   if (!raw) return [];
+  if (Array.isArray(raw)) return raw;
   try {
     const parsed = JSON.parse(raw);
     if (Array.isArray(parsed)) return parsed;
@@ -496,7 +503,7 @@ onBeforeUnmount(() => {
                 <CircleDot v-else-if="item.item === focusItem" class="icon-dot" :size="12" />
                 <Circle v-else class="icon-all" :size="12" />
               </span>
-              <span class="task-title-text">{{ item.title }}</span>
+              <span class="task-title-text">{{ item.item || item.title || "" }}</span>
               <span v-if="item.item === focusItem" class="current-task">
                 ({{ t("test-list.当前任务") }})
               </span>

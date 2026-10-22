@@ -83,27 +83,31 @@ export function parseTestList(raw) {
   }
   if (!Array.isArray(parsed)) return [];
   return parsed
-    .map((group) => {
+    .map((group, index) => {
       const tasks = Array.isArray(group?.tasks) ? group.tasks : [];
-      // The reference normalises `is_complete` to a boolean and counts it.
+      // The reference normalises `is_complete` to a boolean, counts it, and
+      // gives every task and every group an id.
       let complete = 0;
-      for (const task of tasks) {
+      tasks.forEach((task, taskIndex) => {
+        if (task.id === undefined || task.id === null || task.id === "") {
+          task.id = `task-${index}-${taskIndex}`;
+        }
         if (task.is_complete === true || task.is_complete === "true") {
           task.is_complete = true;
           complete += 1;
         } else {
           task.is_complete = false;
         }
-      }
+      });
       return {
         ...group,
+        id: group.id || `group-${index}`,
         tasks,
         is_complete: complete === tasks.length,
         all_count: tasks.length,
         complete_count: complete
       };
-    })
-    .filter((group) => group.tasks.length);
+    });
 }
 
 /**

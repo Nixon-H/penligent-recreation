@@ -12,7 +12,7 @@ let api = null;
 const db = () => (api ||= build(app));
 
 /* projects */
-ipcMain.handle("get-projects", () => db().getProjects());
+ipcMain.handle("get-projects", (_e, userName) => db().getProjects(userName));
 ipcMain.handle("add-projects", (_e, project) => db().addProjects(project));
 ipcMain.handle("update-projects", (_e, id, data) => db().updateProjects(id, data));
 ipcMain.handle("delete-project", (_e, id) => db().deleteProject(id));

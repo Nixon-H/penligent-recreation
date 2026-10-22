@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { useNoticeStore } from "./notice.js";
+import { translate } from "../locales/index.js";
 import { testListCounts } from "../agent/orchestration.js";
 
 const bridge = () => (typeof window !== "undefined" ? window.dbAPI : null);
@@ -74,22 +75,22 @@ export const useProjectStore = defineStore("project", {
       const noticeStore = useNoticeStore();
       if (this.verifying.length) {
         noticeStore.warning(
-          "notice.验证中",
-          "notice.当前有正在验证的风险项，请等待验证完成"
+          translate("notice.验证中"),
+          translate("notice.当前有正在验证的风险项，请等待验证完成")
         );
         return;
       }
       if (this.chatting) {
         noticeStore.warning(
-          "notice.聊天中",
-          "notice.当前有正在聊天的消息，请等待聊天完成"
+          translate("notice.聊天中"),
+          translate("notice.当前有正在聊天的消息，请等待聊天完成")
         );
         return;
       }
       if (this.executing) {
         noticeStore.warning(
-          "notice.执行中",
-          "notice.当前有正在执行的任务，请等待执行完成"
+          translate("notice.执行中"),
+          translate("notice.当前有正在执行的任务，请等待执行完成")
         );
         return;
       }
